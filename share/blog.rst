@@ -14,3 +14,23 @@
 关于RST的几个教程：
 
 http://sphinx-doc-zh.readthedocs.org/en/latest/rest.html
+
+写博客的流程如下 ::
+
+ #先在github上建库
+ $ git clone git@github.com:user/blog.git
+ $ cd ./blog
+ #master分支下，提交改动
+ $ git add .
+ $ git commit -m "First post"
+ $ git push origin master
+ #添加gh-pages分支，并合并master改动，
+ $ git branch gh-pages
+ $ git checkout gh-pages
+ $ git merge master
+ #在gh-pages分支下生成html
+ $ make html && cp _build/html/* .
+ $ git add .
+ $ git commit -m "Publish hello world post"
+ #发布到博客上
+ $ git push origin gh-pages
