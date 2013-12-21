@@ -34,3 +34,9 @@ http://sphinx-doc-zh.readthedocs.org/en/latest/rest.html
  $ git commit -m "Publish hello world post"
  #发布到博客上
  $ git push origin gh-pages
+
+ git 其他常用的操作
+ Removing untracked files from your git working copy
+ If you want to also remove directories, run git clean -f -d
+ If you just want to remove ignored files, run git clean -f -X
+ If you want to remove ignored as well as non-ignored files, run git clean -f -x
