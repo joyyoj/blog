@@ -14,7 +14,6 @@ impala be会使用jni调用访问fe的相关模块，当用gdb调试be 的时候
   handle SIGUSR1 pass noprint nostop
   handle SIGUSR2 pass noprint nostop
 
-
 .. gdb bin/start-impalad.sh -use_statestore=false
 .. gdb -q impalad
 .. set args -use_statestore=false -nn=hadoop-01.localdomain -nn_port=8030

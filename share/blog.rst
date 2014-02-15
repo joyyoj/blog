@@ -11,10 +11,6 @@
 
 最后，我在layout.html中加上disqus的链接，虽然看起来有些唐突，好歹算是博客的功能都有了！
 
-关于RST的几个教程：
-
-http://sphinx-doc-zh.readthedocs.org/en/latest/rest.html
-
 写博客的流程如下 ::
 
  #先在github上建库
@@ -40,3 +36,12 @@ http://sphinx-doc-zh.readthedocs.org/en/latest/rest.html
  If you want to also remove directories, run git clean -f -d
  If you just want to remove ignored files, run git clean -f -X
  If you want to remove ignored as well as non-ignored files, run git clean -f -x
+
+
+
+帮助链接
+----------
+
+`reStructuredText入门 <http://www.pythondoc.com/sphinx/rest.html>`_
+
+`sphinx使用文档 <http://docs.kissyui.com/1.3/docs/html/tutorials/tools/use-sphinx.html>`_

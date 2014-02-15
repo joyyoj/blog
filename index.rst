@@ -17,9 +17,10 @@ Impala
    :glob:
    
    impala/overview
-   impala/frontend
-   impala/be
-   impala/debug
+   impala/io
+..   impala/frontend
+..   impala/be
+..   impala/debug
 
 HIVE
 ----------------
@@ -27,8 +28,9 @@ HIVE
    :maxdepth: 1
    :glob:
 
-   hive/settings
-   hive/hive-meta
+   hive/hql
+..   query/join
+..   hive/settings
 ..   release
 
 工具分享
