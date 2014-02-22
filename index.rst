@@ -28,7 +28,9 @@ HIVE
    :maxdepth: 1
    :glob:
 
+   hive/hive-overall
    hive/hql
+   hive/hive-type
 ..   query/join
 ..   hive/settings
 ..   release

@@ -46,6 +46,7 @@ Table
 Partition
 --------------
 ::
+
     struct Partition {
       1: list<string> values // string value is converted to appropriate partition key type
       2: string   dbName,
@@ -60,6 +61,7 @@ Partition
 Index
 ---------------
 ::
+
     struct Index {
       1: string   indexName, // unique with in the whole database namespace
       2: string   indexHandlerClass, // reserved
@@ -126,7 +128,9 @@ Hive使用TypeInfo描述数据类型，目前支持5种类型.
 4. Struct
 5. Union
 
-具体的定义如下（只列出get接口） ::
+具体的定义如下（只列出get接口） 
+
+.. code-block:: java
 
     public abstract class TypeInfo implements Serializable {  
       public abstract Category getCategory(); 
@@ -206,8 +210,7 @@ a[0] => ExprGenericFuncDesc
 编译OK之后，进行运行，那么如何传递TypeInfo信息给Task？
 HIVE内部有个自己的TypeInfoParser来解析TYPE字符串；
 
-serdeParams.columnTypes -> columnType -> 
-columTypes从FieldSchema中来。
+serdeParams.columnTypes -> columnType -> columTypes从FieldSchema中来。
 
 对于中间结果，它的FieldSchema又如何生成？
 PlanUtils.getFieldSchemasFromRowSchema(parent.getSchema(), "temporarycol")
@@ -219,7 +222,8 @@ PlanUtils.getFieldSchemasFromRowSchema(parent.getSchema(), "temporarycol")
 显然，如果是select算子，则找出outputCols的则它的RowSchema？
 如何知道OutputCols有哪些？
 
-#### Parser
+Parser
+--------------
 
 首先，为了支持上述的语法解析，Hive.g的部分定义如下：
 
@@ -252,7 +256,7 @@ RowSchema
 RowResolver
 ColumnInfo
 
-::
+.. code-block:: java
 
     class ColumnInfo {
     	String internalName;
@@ -307,11 +311,6 @@ HIVE支持数据类型的隐式转换。如:
     insert into table string_table 
     select i32 as key from src; 
 
-HIVE的union all如何处理？
-
-TypeInfo
-----------------------
-
 对象模型
 ####################
 
@@ -323,7 +322,7 @@ HIVE的运行时支持多种对象模型，ObjectInspector的引入的主要意�
 1. Java的对象模型（Thrift或者原生Java）
 2. Hadoop的对象模型（Writable)
 
-接口定义 ::
+.. code-block:: java
 
 	public interface ObjectInspector {
 		public static enum Category {
@@ -336,7 +335,7 @@ HIVE的运行时支持多种对象模型，ObjectInspector的引入的主要意�
 PrimitiveObjectInspector
 =========================
 
-::
+.. code-block:: java
 
     public interface PrimitiveObjectInspector extends ObjectInspector {
       public static enum PrimitiveCategory {
@@ -387,7 +386,7 @@ PrimitiveObjectInspector
 
 StructObjectInspector
 
-::
+.. code-block:: java
 
   public abstract class StructObjectInspector implements ObjectInspector {
     //Returns all the fields.
@@ -412,7 +411,7 @@ StructObjectInspector
 
 MapObjectInspector
 
-::
+.. code-block:: java
 
     public interface MapObjectInspector extends ObjectInspector {
       ObjectInspector getMapKeyObjectInspector(); 
@@ -427,7 +426,7 @@ MapObjectInspector
 
 ListObjectInspector
 
-::
+.. code-block:: java
 
     public interface ListObjectInspector extends ObjectInspector { 
       // Methods that does not need a data object **
@@ -441,18 +440,20 @@ ListObjectInspector
 运行时如何使用ObjectInspector
 ==================================
 
-::
+.. code-block:: java
 
 	//反序列化得到行
 	Object row = serDe.deserialize(t);
 	StructObjectInspector oi = (StructObjectInspector) serDe 
         .getObjectInspector();
  	List<? extends StructField> fieldRefs = oi.getAllStructFieldRefs();
+
 	//获取每一列的信息 
 	for (int i = 0; i < fieldRefs.size(); i++) { 
       Object fieldData = oi.getStructFieldData(row, fieldRefs.get(i)); 
       ...
   	}
+
 从这个例子中，不难出，Hive将对行中列的读取和行的存储方式解耦和了，只有ObjectInspector清楚行的结构，但使用者并不知道存储的细节。 对于数据的使用者来说，只需要行的Object和相应的ObjectInspector，就能读取出每一列的对象。 
 
 ObjectInspector有什么好处
@@ -480,4 +481,7 @@ genTablePlan
 
 tab.getDeserializer().getObjectInspector();
 
-待续...
+个人感觉ObjectInspector带来的编码复杂度很高，得不偿失, 感兴趣的可以关注向量化的内存布局。
+
+写的比较粗糙，回头补充，待续...
+
