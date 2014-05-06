@@ -29,25 +29,44 @@ Coordinator
 Coordinator在Exec(const TUniqueId& query_id, TQueryExecRequest* request, const TQueryOptions& query_options)方法中，根据收到的query_id和request，会计算产生一次查询相关的参数信息，保存在本地。
 
 1. 记录query_id，保存在Coordinator::query_id_
+
 2. 从request中取出finalize_params，保存在Coordinator::finalize_params_
+
 3. 从request中取出query_globals，保存在Coordinator::query_globals_
-4. Coordinator::ComputeFragmentExecParams(const TQueryExecRequest& exec_request) 根据request计算出每个PlanFragment的执行参数，保存在Coordinator::fragment_exec_params_中
-    4.1 Coordinator::ComputeFragmentHosts(const TQueryExecRequest& exec_request) 对每一个PlanFragment，根据request中输入数据所在的位置(per_node_scan_ranges)，得到执行查询的impalad的Host列表，保存在Coordinator::hosts中
+
+4. Coordinator::ComputeFragmentExecParams(const TQueryExecRequest& exec_request)
+   根据request计算出每个PlanFragment的执行参数，保存在Coordinator::fragment_exec_params_中
+
+    4.1 Coordinator::ComputeFragmentHosts(const TQueryExecRequest& exec_request)
+    对每一个PlanFragment，根据request中输入数据所在的位置(per_node_scan_ranges)，得到执行查询的impalad的Host列表，保存在Coordinator::hosts中
         4.1.1 从PlanFragments的DAG的底层向上计算每个PlanFragment的执行节点。因为有些PlanFragment可以直接使用其子Fragment的执行节点执行。
             a) 若PlanFragment的partition.type == TPartitionType::UNPARTITIONED，说明它只能在一个impalad上执行，把它放在coordinator上执行
-            b) 称PlanFragment.plan按DFS序执行第一个被执行的节点（最左子节点，或根节点）为LeftmostNode，若LeftmostNode的查询类型是EXCHANGE_NODE（用于收集DAG下层的PlanFragment的数据)，且所有PlanFragment中存在一个PlanFragment，向当前LeftmostNode输出数据，则选择那个PlanFragment所在的hosts列表作为当前PlanFragment的执行节点。若LeftmostNode的类型是HDFS_SCAN_NODE或HBASE_SCAN_NODE，从LeftmostNode的scan_range_locations指定的一堆DataNode中，若DataNode上存在impalad，则选择该impalad执行，否则从所有impalad中，用Round-robin（轮询）算法选择一个impalad节点执行。在data_server_map中记录每个DataHost上的数据，由哪个impalad处理。
+            b) 称PlanFragment.
+            plan按DFS序执行第一个被执行的节点（最左子节点，或根节点）为LeftmostNode，若LeftmostNode的查询类型是EXCHANGE_NODE（用于收集DAG下层的PlanFragment的数据)，且所有PlanFragment中存在一个PlanFragment，向当前LeftmostNode输出数据，则选择那个PlanFragment所在的hosts列表作为当前PlanFragment的执行节点。若LeftmostNode的类型是HDFS_SCAN_NODE或HBASE_SCAN_NODE，从LeftmostNode的scan_range_locations指定的一堆DataNode中，若DataNode上存在impalad，则选择该impalad执行，否则从所有impalad中，用Round-robin（轮询）算法选择一个impalad节点执行。在data_server_map中记录每个DataHost上的数据，由哪个impalad处理。
+
     4.2 为4.1生成的hosts列表中每个THostPort生成一个全局唯一的instance_id。
+
     4.3 统计每个PlanFragment的输入源,记录向该PlanFragment中的EXCHANGE_NODE写入数据的PlanNode的instance_id,及向该PlanFragment写入数据的hosts的数目. 目前，StreamSink的type只能是TPartitionType::UNPARTITIONED,即PlanFragment只能通过广播的形式，将所有数据发送给所有下游PlanFragment。
+
  5. Coordinator::ComputeScanRangeAssignment(const TQueryExecRequest& exec_request) 对每个PlanNode所需扫描的Range，计算扫描量，安排负责执行的物理节点
+
     5.1 对于scan_range_locations中每个TScanRangeLocation，根据scan_range计算大概的扫描量，从locations中选择目前扫描量最少的location，作为负责扫描该range的DataNode，并更新它的扫描量。
     5.2 从data_server_map中，找到负责扫描该DataNode的impalad，记录scan_range和impalad的对应关系
+
 6. 通过ParallelExecutor并行调用Coordinator::ExecRemoteFragment(void* exec_state_arg)
+
     6.1 通过impala-client，向每个PlanFragment所在机器发送请求，执行机根据请求构建PlanFragmentExecutor
+
     6.2 调用PlanFragmentExecutor的Prepare()方法，初始化执行过程
+
         6.2.1 各种初始化
+
         6.2.2 通过LLVM生成执行代码 
+
         6.2.3 设定扫描的Range，输出数据流等
+
 7. 初始化ProgressUpdater progress_，后续用于收集执行状态
+
 4.4.2.2 Coordinator::Wait():
 Coordinator::Wait()中，调用PlanFragmentExecutor::Open()方法，阻塞等待远程的impalad返回。如果PlanFragmentExecutor中定义了sink，则Open()方法中即不断循环调用PlanFragmentExecutor::GetNext()，流式地获取数据，通过sink发送到下游。Coordinator::GetNext()调用PlanFragmentExecutor::GetNext()方法，并根据本机的处理能力，对流式返回的数据量做一些限制及意外处理。PlanFragmentExecutor::GetNext()每次从PlanNode中调用GetNext()获取一批数据，返回外层。
 

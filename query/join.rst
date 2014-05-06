@@ -2,10 +2,6 @@
 浅谈SQL常用的JOIN算法
 *************************
 
-
-
-
-:author: sunshangchun
 :date: 2013-08-22
 
 

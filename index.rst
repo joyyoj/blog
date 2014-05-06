@@ -45,5 +45,6 @@ Github
    :glob:
 
    share/blog
+   share/hadoop_ecology
 
 
