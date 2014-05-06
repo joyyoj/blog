@@ -1,0 +1,85 @@
+#removeInputBtn {                                                               
+        cursor: pointer                                                             
+}                                                                               
+#removeDepBtn {                                                                 
+        cursor: pointer                                                             
+}                                                                               
+#removeDepJobBtn {                                                              
+        cursor: pointer                                                             
+}                                                                               
+legend {                                                                        
+        margin-bottom: 10px;                                                        
+        border: 0                                                                   
+}                                                                               
+#inputSelectArea {                                                              
+        margin: 10px 0 10px 0                                                       
+}                                                                               
+#relySelectArea {                                                               
+        margin: 10px 0 10px 0                                                       
+}                                                                               
+#tableExportPanel {                                                             
+        margin-top: 20px                                                            
+}                                                                               
+.CodeMirror-fullscreen {                                                        
+        display: block;                                                             
+        position: absolute;                                                         
+        top: 0;                                                                     
+        left: 0;                                                                    
+        width: 100%;                                                                
+        z-index: 100;                                                               
+}                                                                               
+#queryDragger {                                                                 
+        height: 14px;                                                               
+        z-index: 12;                                                                
+        position: relative;                                                         
+        top: -7px;                                                                  
+        cursor: row-resize;                                                         
+}                                                                               
+.mainPanel {                                                                    
+        margin-left: 2.127659574%                                                   
+}                                                                               
+#exportPanel>div>.control-group>.control-label {                                
+        width: 250px;                                                               
+        overflow: hidden;                                                           
+        text-overflow: ellipsis;                                                    
+}                                                                               
+#queryTextarea {                                                                
+        height: 300px;                                                              
+        width: 100%;                                                                
+        font-size: 14px;                                                            
+}
+.CodeMirror {                                                               
+        background: #fff ;                                                      
+        font-size: 14px;                                                        
+        border: 1px solid #6DA5DB;                                              
+}                                                                           
+.CodeMirror-scroll {                                                        
+        height: 300px;                                                          
+}                                                                           
+.editorHeader {                                                             
+        display: inline-block;                                                  
+        width: 100% }                                                           
+#baseTimeInput {                                                            
+        background-color: #fff;                                                 
+        cursor: text                                                            
+}                                                                           
+#hight_option_panel {                                                       
+        position: relative;                                                     
+}                                                                           
+#left_control_panel {                                                       
+        float: left;                                                            
+        width: 400px;                                                           
+}                                                                           
+#right_control_panel {                                                      
+        float: right;                                                           
+        width: 400px;                                                           
+        position: absolute;                                                     
+        top: 0px;                                                               
+        left: 450px;                                                            
+}                                                                           
+.dataTable td input[type="text"] {                                          
+        cursor: text                                                            
+}
+#relyListDiv {
+    width: 99%;
+}

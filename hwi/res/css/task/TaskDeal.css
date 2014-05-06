@@ -1,0 +1,20 @@
+.nav {                                                                             
+    margin: 0;                                                                     
+}                                                                                  
+.control-group {                                                                   
+    margin: 20px 10px 0 40px;                                                      
+}                                                                                  
+#baseTimeStart {                                                                   
+    background-color: #fff;                                                        
+    cursor: text;                                                                  
+}                                                                                  
+#baseTimeEnd {                                                                     
+    background-color: #fff;                                                        
+    cursor: text;                                                                  
+}                                                                                  
+.button-group {                                                                    
+    margin-left: 160px;                                                            
+}                                                                                  
+li.active a:hover {                                                                
+    cursor: default;                                                               
+} 

@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/inf/biglog/!svn/ver/2535/trunk/ui/webroot/res/lib/codemirror/mode/xquery/test
+END
+testMultiAttr.js
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/inf/biglog/!svn/ver/2535/trunk/ui/webroot/res/lib/codemirror/mode/xquery/test/testMultiAttr.js
+END
+testBase.js
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/inf/biglog/!svn/ver/2535/trunk/ui/webroot/res/lib/codemirror/mode/xquery/test/testBase.js
+END
+testEmptySequenceKeyword.js
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/inf/biglog/!svn/ver/2535/trunk/ui/webroot/res/lib/codemirror/mode/xquery/test/testEmptySequenceKeyword.js
+END
+index.html
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/inf/biglog/!svn/ver/2535/trunk/ui/webroot/res/lib/codemirror/mode/xquery/test/index.html
+END
+testNamespaces.js
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/inf/biglog/!svn/ver/2535/trunk/ui/webroot/res/lib/codemirror/mode/xquery/test/testNamespaces.js
+END
+testQuotes.js
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/inf/biglog/!svn/ver/2535/trunk/ui/webroot/res/lib/codemirror/mode/xquery/test/testQuotes.js
+END
+testProcessingInstructions.js
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/inf/biglog/!svn/ver/2535/trunk/ui/webroot/res/lib/codemirror/mode/xquery/test/testProcessingInstructions.js
+END

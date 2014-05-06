@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/inf/biglog/!svn/ver/14447/trunk/ui/webroot/res/css/job
+END
+JobTableExport.css
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/inf/biglog/!svn/ver/13552/trunk/ui/webroot/res/css/job/JobTableExport.css
+END
+JobList.css
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/inf/biglog/!svn/ver/13225/trunk/ui/webroot/res/css/job/JobList.css
+END
+CreateFactTable.css
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/inf/biglog/!svn/ver/13734/trunk/ui/webroot/res/css/job/CreateFactTable.css
+END
+JobAddRelyFile.css
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/inf/biglog/!svn/ver/13225/trunk/ui/webroot/res/css/job/JobAddRelyFile.css
+END
+JobEdit.css
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/inf/biglog/!svn/ver/14447/trunk/ui/webroot/res/css/job/JobEdit.css
+END
+CreateDimensionTable.css
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/inf/biglog/!svn/ver/13734/trunk/ui/webroot/res/css/job/CreateDimensionTable.css
+END
+ManageFactList.css
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/inf/biglog/!svn/ver/13734/trunk/ui/webroot/res/css/job/ManageFactList.css
+END

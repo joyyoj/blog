@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/inf/biglog/!svn/ver/33006/trunk/ui/webroot/res/js/data
+END
+DataApply.js
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/inf/biglog/!svn/ver/13225/trunk/ui/webroot/res/js/data/DataApply.js
+END
+CreateDimensionTable.js
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/inf/biglog/!svn/ver/13225/trunk/ui/webroot/res/js/data/CreateDimensionTable.js
+END
+DataFlow.js
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/inf/biglog/!svn/ver/13225/trunk/ui/webroot/res/js/data/DataFlow.js
+END
+DataTerm.js
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/inf/biglog/!svn/ver/13225/trunk/ui/webroot/res/js/data/DataTerm.js
+END
+ManageFactList.js
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/inf/biglog/!svn/ver/13429/trunk/ui/webroot/res/js/data/ManageFactList.js
+END
+DataLoggingDetail.js
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/inf/biglog/!svn/ver/13225/trunk/ui/webroot/res/js/data/DataLoggingDetail.js
+END
+DataList.js
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/inf/biglog/!svn/ver/14260/trunk/ui/webroot/res/js/data/DataList.js
+END
+DataRecord.js
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/inf/biglog/!svn/ver/13225/trunk/ui/webroot/res/js/data/DataRecord.js
+END
+CreateFactTable.js
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/inf/biglog/!svn/ver/15721/trunk/ui/webroot/res/js/data/CreateFactTable.js
+END
+ManageDimensionList.js
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/inf/biglog/!svn/ver/13429/trunk/ui/webroot/res/js/data/ManageDimensionList.js
+END
+DataDetail.js
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/inf/biglog/!svn/ver/14468/trunk/ui/webroot/res/js/data/DataDetail.js
+END
+DataTermList.js
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/inf/biglog/!svn/ver/13225/trunk/ui/webroot/res/js/data/DataTermList.js
+END

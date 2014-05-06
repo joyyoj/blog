@@ -1,0 +1,23 @@
+.CodeMirror-fullscreen {                                                       
+        display: block;                                                            
+        position: absolute;                                                        
+        top: 0; left: 0;                                                           
+        width: 100%;                                                               
+        z-index: 100;                                                              
+}                                                                              
+#queryDragger {                                                                
+        height: 14px;                                                              
+        z-index:12;                                                                
+        position: relative;                                                        
+        top: -7px;                                                                 
+        cursor: row-resize;                                                        
+}                                                                              
+.mainPanel { margin-left:2.127659574% }                                        
+#queryTextarea{height:225px; width:100%;font-size:14px;}                       
+.CodeMirror {background: #fff ; font-size:14px; border:1px solid #6DA5DB;}  
+.CodeMirror-scroll{height:225px;}                                              
+.editorHeader {display:inline-block; width:100% }                              
+                                                                                                                                                             
+.initFtpPanel{width:644px;margin-left:66px;}                                   
+.form-horizontal .control-label {width: 65px;}                                 
+.form-horizontal .controls {margin-left: 66px;} 

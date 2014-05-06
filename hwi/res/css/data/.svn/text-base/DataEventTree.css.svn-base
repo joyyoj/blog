@@ -1,0 +1,122 @@
+.dataTables_scrollHeadInner>table.display{
+    table-layout: fixed;
+    margin:0;
+}
+
+.dataTables_scrollHeadInner>table.display thead th{
+    margin:0; 
+    border-bottom: 0px;
+}
+
+.dataTables_scrollBody>table.display{
+    table-layout: fixed; 
+    margin:0; 
+    max-width:auto;
+}
+
+#queryHelp:hover {                                                             
+    color: #666;                                                               
+}
+
+#queryHelp {                                                                   
+    float:right;                                                               
+    color: #AAA;                                                               
+    cursor: pointer;                                                           
+    font-size: 11pt;                                                           
+    font-weight: bold;                                                         
+    padding: 2px 5px;                                                          
+    text-decoration: none;                                                     
+}
+
+#queryKeyMap:hover {                                                           
+    color: #666;                                                               
+}
+
+#queryKeyMap {                                                                 
+    float:right;                                                               
+    color: #AAA;                                                               
+    cursor: pointer;                                                           
+    font-size: 11pt;                                                           
+    font-weight: bold;                                                         
+    padding: 2px 5px;                                                          
+    text-decoration: none;                                                     
+}
+
+#queryName {                                                                   
+    display: inline-block;                                                     
+    font-size: 12pt;                                                           
+    margin: 0 0 0 -5px;                                                        
+    overflow: hidden;                                                          
+    padding: 5px;                                                              
+    color:black;                                                               
+    text-overflow: ellipsis;                                                   
+    white-space: nowrap;                                                       
+    max-width: 85%;                                                            
+}
+
+#queryClose:hover {                                                            
+    opacity: 1.0;                                                              
+}
+
+#queryClose {                                                                  
+    background: url(../../../res/img/close-x.png);                                      
+    cursor: pointer;                                                           
+    margin:5px;                                                                
+    height: 11px;                                                              
+    opacity: 0.7;                                                              
+    float:right;                                                               
+    width: 11px;                                                               
+}
+
+#queryDragger {                                                                
+    height: 14px;                                                              
+    z-index:12;                                                                
+    position: relative;                                                        
+    top: -7px;                                                                 
+    cursor: row-resize;                                                        
+}
+
+#queryTextarea{height:93px; width:100%;font-size:14px;}                        
+.CodeMirror {background: #fff ; font-size:14px; border:1px solid #6DA5DB;}  
+.CodeMirror-scroll{height:93px;}                                            
+.ztree li span.button.diy01_ico_open, .ztree li span.button.diy01_ico_close{
+    background:url(../../../res/img/icon-home-blue.gif);                             
+}                                                                           
+.ztree li span.button.diy02_ico_open, .ztree li span.button.diy02_ico_close{
+    background:url(../../../res/img/icon-wheel-blue.gif);                            
+}                                                                           
+.ztree li span.button.diy03_ico_docu{                                       
+    background:url(../../../res/img/icon-grid-blue.gif);                             
+}                                                                           
+.queryDivFixed {                                                            
+    position: fixed;                                                        
+    overflow: hidden;                                                       
+    margin-left:9px;                                                        
+    right: 8px;                                                             
+    left: 25.6%;                                                            
+    z-index: 10;                                                            
+    top: 2px;                                                               
+}                                                                           
+.popover-title{display:none;}                                               
+.container-fluid {                                                              
+    padding-right: 14px;                                                        
+    padding-left: 14px;                                                         
+}                                                                               
+#dataschema.display tr td {                                                     
+    word-break:break-all;                                                       
+    padding:6px 10px;                                                           
+}
+
+div.tab-content tbody tr td{
+    font-size: 12px;
+}
+
+.table-left {
+    position: relative;
+    z-index: 999;
+}
+
+.table-left .content {
+    position: absolute;
+    float: left;
+}

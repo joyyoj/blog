@@ -1,0 +1,7 @@
+.ViewTable .bgbl {                                                             
+        background: none repeat scroll 0 0 #6DA5DB;                                
+        color: #FFFFFF;                                                            
+        width:auto;                                                                
+}                                                                              
+td>img{width: 20px; height: 20px;max-width:20px;}                              
+.popover-title{display:none;}

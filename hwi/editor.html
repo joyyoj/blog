@@ -1,0 +1,70 @@
+<html>
+
+<body>
+  <div id="editor" style="height: 500px; width: 800px">select * from src limit 1</div>
+  <div id="commandline" style="position: absolute; bottom: 10px; height: 20px; width: 800px;"></div>
+</body>
+<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script src="ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="ace/ext-language_tools.js" type="text/javascript" charset="utf-8"></script>
+<script>
+  var langTools = ace.require("ace/ext/language_tools");
+  var editor = ace.edit("editor");
+  editor.getSession().setTabSize(4);
+  editor.getSession().setUseSoftTabs(true);
+  document.getElementById('editor').style.fontSize='15px';
+  editor.getSession().setMode("ace/mode/sql")
+  editor.setTheme("ace/theme/tomorrow");
+  editor.setOptions({
+    enableBasicAutocompletion: true,
+    enableSnippets: true,
+    // enableLiveAutocomplete:true
+  });
+
+  editor.commands.addCommand({
+    name: 'completion',
+    bindKey: {win: 'Ctrl-M',  mac: 'Command-M'},
+    exec: function(editor) {
+      editor.setValue(editor.getValue() + "TestCommand");
+      //...
+    },
+    readOnly: true // false if this command should not apply in readOnly mode
+  });
+
+  // auto completor
+  editor.commands.on("afterExec", function(e){
+    if (e.command.name == "insertstring"&&/^[\w.]$/.test(e.args)) {
+      editor.execCommand("startAutocomplete")
+    }
+  });
+
+  // var Autocomplete = require("ace/ext/autocomplete").Autocomplete;
+  // Autocomplete.autoInsert = true;
+  var hqlCompleter = {
+    getCompletions: function(editor, session, pos, prefix, callback) {
+      if (prefix.length === 0) {
+        callback(null, []);
+        return
+      }
+      var line = session.getLine(pos.row);
+      var content = editor.getValue();
+      var url= "http://localhost/completor.php?prefix="
+          + prefix + "&content=" + content + "&line=" + line;
+      $.getJSON(
+        url, 
+        function(wordList) {
+          callback(null, wordList.map(function(ea) {
+            return {
+              name: ea.word,
+              value: ea.word,
+              score: ea.score,
+              meta: ea.meta
+            }
+          }));
+        });
+    }
+  }
+  langTools.addCompleter(hqlCompleter);
+</script>
+
+</html>

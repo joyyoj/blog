@@ -1,0 +1,22 @@
+  4     .CodeMirror-fullscreen {                                                    
+  5         display: block;                                                         
+  6         position: absolute;                                                     
+  7         top: 0; left: 0;                                                        
+  8         width: 100%;                                                            
+  9         z-index: 100;                                                           
+ 10     }                                                                           
+ 11     #queryDragger {                                                             
+ 12         height: 14px;                                                           
+ 13         z-index:12;                                                             
+ 14         position: relative;                                                     
+ 15         top: -7px;                                                              
+ 16         cursor: row-resize;                                                     
+ 17     }                                                                           
+ 18     .mainPanel { margin-left:2.127659574% }                                     
+ 19     #queryTextarea{height:300px; width:100%;font-size:14px;}                    
+ 20     .CodeMirror {background: #fff ; font-size:14px; border:1px solid #6DA5DB;}  
+ 21     .CodeMirror-scroll{height:300px;}                                           
+ 22     .editorHeader {display:inline-block; width:100% }                           
+ 23     .createViewBtn { margin: 0 0 7px 612px; }                                   
+ 24     .createViewPanel{width: 704px; }                                            
+ 25     form.createFactTableForm {margin:0 auto; width:950px;}

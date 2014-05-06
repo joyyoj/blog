@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/inf/biglog/!svn/ver/14074/trunk/ui/webroot/res/js/queue
+END
+queue.edit.js
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/inf/biglog/!svn/ver/13225/trunk/ui/webroot/res/js/queue/queue.edit.js
+END
+queue.add.js
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/inf/biglog/!svn/ver/13225/trunk/ui/webroot/res/js/queue/queue.add.js
+END
+queue.job.js
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/inf/biglog/!svn/ver/13225/trunk/ui/webroot/res/js/queue/queue.job.js
+END
+queue.view.js
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/inf/biglog/!svn/ver/13225/trunk/ui/webroot/res/js/queue/queue.view.js
+END
+QueueList.js
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/inf/biglog/!svn/ver/14074/trunk/ui/webroot/res/js/queue/QueueList.js
+END
+queue.action.js
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/inf/biglog/!svn/ver/13225/trunk/ui/webroot/res/js/queue/queue.action.js
+END
+queue.remove.js
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/inf/biglog/!svn/ver/13225/trunk/ui/webroot/res/js/queue/queue.remove.js
+END

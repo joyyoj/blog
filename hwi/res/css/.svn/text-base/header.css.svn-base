@@ -1,0 +1,30 @@
+.container-smallWidth {                                                        
+    min-width:724px;                                                           
+    max-width:940px;                                                           
+}                                                                              
+.container-largeWidth {                                                        
+    min-width:975px;                                                           
+    max-width:1200px;                                                          
+}                                                                              
+.container{
+    max-width:1200px;
+}
+.innerContainer{
+    margin:0 15px;
+}
+body{ padding-top: 40px; }                                             
+.main-container { position: absolute; top: 41px; left: 0px; right: 0px; bottom: 0px; overflow-y:hidden;}
+.main-container iframe { width: 100%; height: 100%; margin: 0; padding: 0; }
+
+span.longscheduler_test_tip {
+    display:inline-block;
+    position:relative;
+    background:url(/res/img/longscheduler-new1.png) no-repeat;
+    cursor:auto
+    top: 2px;
+    left: -20px;
+    height:20px;
+    width:30px;
+    z-index:1
+}
+

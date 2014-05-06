@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script>
+    // 建议biglog产品以后暴露的所有对象都放在这个对象的字段中
+    // 如希望暴露一个函数myfun = function() {...} 给别人用，那么这么写：
+    // baiduBiglog.myfun = function() { ... };
+    var baiduBiglog = {};
+</script>
+<title>Biglog系统</title>
+<meta content="bigquery" name="keywords">
+<meta content="关注数据建设" name="description">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="res/lib/bootstrap/css/bootstrap.css?v=2014040418">
+<link rel="stylesheet" type="text/css" href="res/css/autosuggest_inquisitor.css?v=2014040418">
+<link rel="stylesheet" type="text/css" href="res/css/all2.css?v=2014040418">
+<link rel="stylesheet" type="text/css" href="res/css/tip.css?v=2014040418">
+<link rel="stylesheet" type="text/css" href="res/css/header.css?v=2014040418">
+<!--
+-->
+</head>
+<body>
+    <!-- body header start   -->
+    <div id = "navBar" class="navbar navbar-fixed-top" style="display: block;">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a id="indexlink" class="brand active" href="?m=Qewi&a=Index">Biglog</a>
+                    <div class="nav-collapse">
+                        <ul class="nav">
+                            <li menutab="yes" class="dropdown menutab"><a id="menuReport" href="?m=StaticReport&a=List&menuTab=1" class="dropdown-toggle alinks" data-toggle="dropdown"><i
+class="icon-signal icon-white"></i>静态报表</a>
+                            </li>
+                            <li menutab="yes" class="dropdown menutab">
+                            <a id="menuDataLook" href="?m=Qewi&a=Index&menuTab=2&flag=true" class="dropdown-toggle alinks" data-toggle="dropdown"><i class="icon-th icon-white"></i>
+数据查看<b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li> <a id="menuQueryEngine" class="alinks" href="?m=Qewi&a=Index&menuTab=2&flag=true"><i class="icon-list-alt"></i>Query Engine</a> </li>
+                                    <li> <a id="menuEventList" class="alinks" href="?m=Data&a=List&source=Event&menuTab=2"><i class="icon-th"></i>Event表列表</a> </li>
+                                    <li><a id="menuDataList" class="alinks" href="?m=Data&a=List&source=materializeview&menuTab=2"><i class="icon-th-list"></i>数据表列表</a></li>
+                                </ul>
+                            </li>
+                            <li menutab="yes" class="dropdown menutab">
+                            <a id="menuDataBuild"  href="?m=Job&a=List&type=etl&menuTab=3" class="dropdown-toggle alinks" data-toggle="dropdown"><i class="icon-cog icon-white"></i>
+DataMart<b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a id="menuETLList"  class="alinks" href="?m=Job&a=List&type=etl&menuTab=3"><i class="icon-th-list"></i>ETL列表</a></li>
+                                    <li><a id="menuAddETL" class="alinks" href="?m=Job&a=Edit&type=etl&from=create&menuTab=3"><i class="icon-pencil"></i>编写ETL</a></li>
+                                </ul>
+                            </li>
+                                                                                    <li menutab="yes" class="dropdown menutab">
+                            <a id="menuBaseDataBuild" href="?m=Data&a=List&source=Log&menuTab=4" class="dropdown-toggle alinks" data-toggle="dropdown"><i class="icon-cog icon-white"></i>
+UDW数据建设<b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a id="menuLogList" class="alinks" href="?m=Data&a=List&source=Log&menuTab=4"><i class="icon-th"></i>LOG列表</a></li>
+                                    <li><a id="menuUETLList" class="alinks" href="?m=Job&a=List&type=uetl&menuTab=4"><i class="icon-th-list"></i>UETL列表</a></li>
+                                    <li class="divider" style="display:none"></li>
+                                    <li  style="display:none"><a id="menuLoggingSchema" href="http://yx-hadoop-a0651.yx01.baidu.com:8198/logging/webroot/?m=Logging&a=Schema"><i
+class="icon-align-left"></i>Logging Schema</a></li>
+                                    <li style="display:none"><a id="menuEditLogging" href="http://yx-hadoop-a0651.yx01.baidu.com:8198/logging/webroot/?m=Logging&a=Edit"><i class="icon-
+pencil"></i>Logging编辑</a></li>
+                                </ul>
+                            </li>
+                                                        <li menutab="yes" class="dropdown menutab">
+                            <a target="_blank" href="http://nj02-biglog-ls-executor00.nj02.baidu.com:8080/ls.html?username=sunshangchun" class="dropdown-toggle alinks" data-toggle="dropdown"><i class="icon-signal icon-tasks"></i>作业调度</a>
+                            </li>
+                        </ul>
+                        <ul class="nav pull-right">
+                            <li id="menuNewMsg" flag="menuNewMsg" menutab="yes"  class="dropdown menutab" style="display: none;">
+                            <a class="dropdown-toggle" data-toggle="dropdown">新消息<span class="badge badge-warning">0</span></a>
+                            <ul class="dropdown-menu">
+                                <li><a id="menuBeDealWorkFlow" href="?m=WorkflowProcess&a=NeedToDeal&menuTab=6">待处理流程<span class="badge badge-warning">0</span></a></li>
+                            </ul>
+                            </li>
+                            <li id="menuYesterdayCost" flag="menuYesterdayCost" menutab="yes"  class="menutab" style="display: none;">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="?m=ResourceStat&a=Profile">昨日消费：<span
+                                    class="badge badge-warning">结算中</span></a>
+                            </li>
+                            <li flag="menuUserName" menutab="yes" class="dropdown menutab">
+                            <a id="menuUserName" href="" class="dropdown-toggle" data-toggle="dropdown" id="userMenuName"><i class="icon-user icon-white"></i> sunshangchun<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                                                <li><a class="alinks" href="?m=Platform&a=TaskSummary&menuTab=5"><i class="icon-th-list"></i>任务信息</a></li>
+                                <li><a class="alinks" href="?m=Queue&a=List&menuTab=5"><i class="icon-th"></i>资源队列</a></li>
+                                <li><a class="alinks" href="?m=Task&a=Deal&menuTab=5"><i class="icon-th"></i>任务处理</a></li>
+                                <li class="divider" style="display:none"></li>
+                                <li class="divider"></li>
+                                <li><a id="menuMyRigth" href="?m=Role&a=Permission&roleId=0&menuTab=7" id="myAuthorityLink"><i class="icon-file"></i>我的权限</a></li>
+                                <li class="divider"></li>
+                                <li><a id="menuMyWorkFlow" href="?m=WorkflowProcess&a=List&filter=ViewAll&menuTab=7" id="myProcessLink"><i class="icon-random"></i>我发起的流程</a></li>
+                                <li><a id="menuBeDealWorkFlowTwo" href="?m=WorkflowProcess&a=NeedToDeal&mmenuTab=7" id="NeedToDealProcessLink"><i class="icon-time"></i>待处理的流程</a></li>
+                                <li class="divider"></li>
+                                <li><a href="?m=Index&a=Logout" id="exitLink"><i class="icon-share-alt"></i>退出</a></li>
+                            </ul>
+                            </li>
+                        </ul>
+                        <span class="longscheduler_test_tip"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <!--  body header end  -->
+    <!-- message notice start  -->
+    <div id="msgBoxDiv" class = "msgBoxDiv" style="display:none">
+        <span id="msgItem" class = "msgItem">
+        </span>
+    </div>
+    <!-- message notice end  -->
+    <!-- body main Container start  -->
+        <div class="container container-largeWidth">
+        <div class="innerContainer">
+    <!-- body main innerContainer start  -->
+<!-- script area start -->
+<script type="text/javascript">
+var DTAdmin = 1;
+var IndexUri = '?m=Qewi&a=Index';
+var nav = '';
+var navFlag = 'yes';
+</script>
+<!--
+<script type="text/javascript" src="res/lib/jquery/js/jquery-1.7.1.min.js?v=2014040418"></script>
+<script type="text/javascript" src="res/js/common/jquery.poshytip.min.js?v=2014040418"></script>
+<script type="text/javascript" src="res/js/common/all.js?v=2014040418"></script>
+<script type="text/javascript" src="res/js/common/autosuggest.js?v=2014040418"></script>
+<script type="text/javascript" src="res/lib/bootstrap/js/bootstrap.js?v=2014040418"></script>
+<script type="text/javascript" src="res/lib/bootstrap/js/h-dropdown.js?v=2014040418"></script>
+<script type="text/javascript" src="res/js/frameWork/header.js?v=2014040418"></script>
+<script type="text/javascript" src="res/js/common/biglog-log-print.js?v=2014040418"></script>
+-->
+<!-- script area end -->
+<link rel="stylesheet" type="text/css" href="res/css/Qewi/QewiIndex.css?v=2014040418">
+<!--
+<link rel="stylesheet" type="text/css" href="res/lib/jquery/css/ui-lightness/jquery-ui-1.10.3.custom.min.css?v=2014040418">
+<link rel="stylesheet" type="text/css" href="res/css/datatables.css?v=2014040418">
+<link rel="stylesheet" type="text/css" href="res/lib/zTree/css/zTreeStyle/zTreeStyle.css?v=2014040418">
+<link rel="stylesheet" type="text/css" href="res/lib/codemirror/lib/codemirror.css?v=2014040418">
+-->
+<div class="boxhtml">
+    <div class="boxbody mg ">
+        <div id="treePanel" class="leftNavPanel" style="display: block;">
+            <div class="form-search" style="min-width:178px">
+                <i class="icon-search"></i>
+                <input id="qewi-zTreeSearch" type="text" class="input-medium" name="keyword" placeholder="id、拼音、英文"/>
+            </div>
+            <ul id="qewi-zTree" class="ztree"></ul>
+            <style>
+                .TreeHeader{ text-align: left; text-indent: 34px; }
+            </style>
+            </div>
+        </div>
+        <!-- 日志树收缩展开 Start -->
+        <div id="slideTreeBtnBox">
+            <span id="slideTreeBtn" class="icon-chevron-left"></span>
+        </div>
+        <!-- 日志树收缩展开 End -->
+        <!-- QueryPanel Start -->
+        <div class="rightPanel" style="display: block">
+            <div class="container-fluid">
+                <!--div class="content-header">
+                    Query Engine
+                    <a target="_blank" href="http://bigdata.baidu.com/magi/" title="先来学习一下吧">
+                        <img src="/res/img/help.png" /></a>
+                </div-->
+                <div id="editor" style="height: 300px; width: 600px">select * from src limit 1</div>
+                <div class="btnRight">
+                    <a id = "queryBtn" class="btn btn-primary" data-text="提交查询" data-loading-text="提交中…">
+                        语法检查
+                    </a>
+                </div>
+                <div id="tabArea" style="margin-top:10px">
+                    <ul class="nav nav-tabs" style="background-color:#eee;">
+                        <li class="active" style="padding-right:0px;"><a href="#schemaDetailPanel"  data-toggle="tab">表详情</a></li>
+                    </ul>
+                    <div class="tab-content" style="min-height:350px;">
+                        <div class="tab-pane active" id="schemaDetailPanel">
+                            <div>
+                                <ul class="inline">
+                                    <li>
+                                    <a target="_blank" class="btn">
+                                        <i class="icon-list-alt"></i>预览Schema</a>
+                                    </li>
+                                    <li>
+                                        <a target="_blank" class="btn btn-primary">
+                                            <i class="icon-white icon-wrench"></i>管理Schema</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <table id="schemaTable" style="width:100%;" cellpadding="0"
+                                class="display mg" cellspacing="0" border="0">
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- QueryPanel End -->
+        <!-- Dialog Start -->
+        <div id="dialog" style="display: none;">
+            <div class="dialog-header"><h4></h4></div>
+            <div class="dialog-body"><p></p><pre></pre></div>
+            <div class="dialog-footer">
+                <a id="continueExecute" method="btn" class="btn btn-success" data-dismiss="modal">继续</a>
+                <a id="stopExecute" method="btn" class="btn btn-danger" data-dismiss="modal">取消</a>
+            </div>
+        </div>
+        <!-- Dialog End -->
+    </div>
+</div>
+<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script src="ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="ace/ext-language_tools.js" type="text/javascript" charset="utf-8"></script>
+<!--script src="client.js" type="text/javascript" charset="utf-8"></script-->
+<script>
+  var langTools = ace.require("ace/ext/language_tools");
+  var editor = ace.edit("editor");
+  editor.getSession().setTabSize(4);
+  editor.getSession().setUseSoftTabs(true);
+  document.getElementById('editor').style.fontSize='15px';
+  editor.getSession().setMode("ace/mode/sql")
+  editor.setTheme("ace/theme/tomorrow");
+  editor.setOptions({
+    enableBasicAutocompletion: true,
+    enableSnippets: true,
+    // enableLiveAutocomplete:true
+  });
+
+  editor.commands.addCommand({
+    name: 'completion',
+    bindKey: {win: 'Ctrl-M',  mac: 'Command-M'},
+    exec: function(editor) {
+      editor.setValue(editor.getValue() + "TestCommand");
+      //...
+    },
+    readOnly: true // false if this command should not apply in readOnly mode
+  });
+
+  // auto completor
+  editor.commands.on("afterExec", function(e){
+    if (e.command.name == "insertstring"&&/^[\w.]$/.test(e.args)) {
+      editor.execCommand("startAutocomplete")
+    }
+  });
+
+  // var Autocomplete = require("ace/ext/autocomplete").Autocomplete;
+  // Autocomplete.autoInsert = true;
+  var hqlCompleter = {
+    getCompletions: function(editor, session, pos, prefix, callback) {
+      if (prefix.length === 0) {
+        callback(null, []);
+        return
+      }
+      var line = session.getLine(pos.row);
+      var content = editor.getValue();
+
+//      var thrift = require('thrift');
+//      var service = require('gen-nodejs/QueryService.js');
+//      var connection = thrift.createConnection('localhost', 9090);
+//      connection.on("error", function(err) {
+//          console.error(err);
+//      });
+//      var client = thrift.createClient(service, connection);
+//      var res = client.GetCompletion(prefix, line, content);
+//      connection.end();
+//      var words =  jQuery.parseJSON(res);
+//      callback(null, words.map(function(ea) {
+//          alert(ea.word);
+//            return {
+//              name: ea.word,
+//              value: ea.word,
+//              score: ea.score,
+//              meta: ea.meta
+//            }
+//          }));
+      var url= "http://localhost:8000/cgi-bin/client.py?prefix="
+          + prefix + "&content=" + content + "&line=" + line;
+      $.getJSON(
+        url, 
+        function(wordList) {
+          callback(null, wordList.map(function(ea) {
+            return {
+              name: ea.word,
+              value: ea.word,
+              score: ea.score,
+              meta: ea.meta
+            }
+          }));
+        });
+    }
+  }
+  langTools.addCompleter(hqlCompleter);
+</script>
+</html>

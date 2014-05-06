@@ -1,0 +1,4 @@
+.table{border-collapse:collapse;border: 1px solid #AED0EA;}                    
+.table td{padding:10px !important; font-size:14px;border: 1px solid #AED0EA;border-collapse:collapse}
+.table .title{background-color: #E3F1FA !important;color: #2779AA;font-weight: bold;width:120px}
+.table tbody tr:hover td, .table tbody tr:hover th {background-color: #F5FBFE;}
