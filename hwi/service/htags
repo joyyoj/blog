@@ -1,8 +1,0 @@
-default	src	key	string	key字段
-default	src	value	string	NULL
-default	hst1	key	int	NULL
-default	hst1	value	string	NULL
-default	hst_text1	key	int	NULL
-default	hst_text1	value	string	NULL
-default	srcpart	key	string	NULL
-default	srcpart	value	string	NULL

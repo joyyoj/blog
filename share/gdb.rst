@@ -13,7 +13,8 @@ In a local directory, do ::
 
   svn co svn://gcc.gnu.org/svn/gcc/trunk/libstdc++-v3/python
 
-Add the following to your ~/.gdbinit. The path needs to match where the python module above was checked-out. So if checked out to: /home/maude/gdb_printers/, the path would be as written in the example ::
+Add the following to your ~/.gdbinit. The path needs to match where the python module above was checked-out.
+So if checked out to: /home/maude/gdb_printers/, the path would be as written in the example ::
 
   python
   import sys
@@ -22,3 +23,7 @@ Add the following to your ~/.gdbinit. The path needs to match where the python m
   register_libstdcxx_printers (None)
   end
 
+
+下载gdb 按照 pretty print
+
+如果没有打开core文件, ulimit -c unlimited

@@ -25,3 +25,10 @@ LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
 ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+select count(1) all_count, count(if(size(chn) > 1, 1, NULL)) overlap_count from (
+select md5_device_id,  collect_set(distribution_channel) chn
+from dw.etl_user_entity_delta
+group by md5_device_id
+) t
+where array_contains(chn, 'liebo');

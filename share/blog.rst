@@ -42,3 +42,7 @@ touch .nojekyll 原因可以参考 `这里 <https://help.github.com/articles/usi
 `reStructuredText入门 <http://www.pythondoc.com/sphinx/rest.html>`_
 
 `sphinx使用文档 <http://docs.kissyui.com/1.3/docs/html/tutorials/tools/use-sphinx.html>`_
+
+http://hadoop2-13.lg-4-e10.yidian.com:8088/proxy/application_1425412783697_53356/ws/v1/mapreduce/jobs/job_1425412783697_53356/counters
+http://hadoop2-13.lg-4-e10.yidian.com:8088/proxy/ws/v1/history/mapreduce/jobs/job_1425412783697_53356/counters
+http://hadoop2-2.lg-4-e9.yidian.com:19888/ws/v1/history/mapreduce/jobs/job_1425412783697_53356/counters
