@@ -21,6 +21,9 @@ create 'neo_doc_test', {NAME => 'f', VERSIONS => 1, COMPRESSION => 'SNAPPY', IN_
     {SPLITS => ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']}
 
 
+create 'stat_doc', 'f', { NUMREGIONS => 128, SPLITALGO => 'UniformSplit' }, { NAME => 'f', IN_MEMORY => 'true', BLOCKCACHE => 'true', COMPRESSION => 'SNAPPY' }
+create 'stat_source', 'f', { NUMREGIONS => 32, SPLITALGO => 'UniformSplit' }, { NAME => 'f', IN_MEMORY => 'true', BLOCKCACHE => 'true', COMPRESSION => 'SNAPPY' }
+
 create 'neo_conj', {NAME => 'f', VERSIONS => 1, COMPRESSION => 'SNAPPY', IN_MEMORY => 'true', BLOCKCACHE => 'true', TTL => '345600' },
     {SPLITS => ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']}
 
