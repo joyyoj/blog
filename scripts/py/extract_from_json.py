@@ -20,8 +20,9 @@ def file_put_content(content, file_name):
 
 if __name__ == '__main__' :
     with open("log.txt") as infile:
-    for line in infile:
-        do_something_with(line)
+        for line in infile:
+            js = json.loads(line)
+            
     # dir_path = sys.argv[1]
     # files = [ join(dir_path, f) for f in listdir(dir_path) if isfile(join(dir_path, f)) ]
     # for file_name in files:

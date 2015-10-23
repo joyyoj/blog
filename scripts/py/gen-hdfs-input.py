@@ -26,7 +26,6 @@ def exec_shell(cmd):
     output = commands.getstatusoutput(cmd)
     return (output[0], output[1].split("\n"))
 
-
 if __name__ == '__main__' :
     date = sys.argv[1]
     duration = int(sys.argv[2])
